@@ -3,7 +3,6 @@ from telebot import types
 from datetime import datetime, timedelta
 from random import shuffle
 
-# bot = telebot.TeleBot("5030177729:AAEfQLA8x7IAuffMVkXkZ51xJnvVJ0gfchs")
 bot = telebot.TeleBot("5287049971:AAGrFEFSUi1BdvZAR45NiJAa8Cb9UNbxRz8")
 
 # словарь со всеми чатами и игроками в этих чатах
@@ -223,9 +222,7 @@ def get_command(mes):
 def get_text(mes):
     if mes.chat.id in chat_list:
         chat = chat_list[mes.chat.id]
-        print(chat)
         if chat['game_running']:
-            print(chat)
             # Удаление сообщений не играющих пользователей во время игры
             if mes.from_user.id not in chat['players']:
                 bot.delete_message(mes.chat.id, mes.message_id)
